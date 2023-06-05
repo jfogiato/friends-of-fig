@@ -7,16 +7,16 @@ const Chores = () => {
 
   getChores()
     .then(data => {
-      setChores(data.data)
-      setLoading(false)
+      setChores(data.data);
+      setLoading(false);
     })
     .catch(error => console.log(error));
 
   const choreList = chores.map(chore => {
     return (
-      <li class="list-group-item">
-        <input class="form-check-input me-1" type="checkbox" value="" id={chore.id}/>
-        <label class="form-check-label stretched-link" for={chore.id}>{chore.name} - {chore.date}</label>
+      <li className="list-group-item" key={chore.id}>
+        <input className="form-check-input me-1" type="checkbox" value="" id={chore.id}/>
+        <label className="form-check-label stretched-link" htmlFor={chore.id}>{chore.name} - {chore.date}</label>
       </li>
     );
   });
@@ -30,7 +30,6 @@ const Chores = () => {
             {choreList}
           </ul>
       }
-
     </section>
   );
 }
