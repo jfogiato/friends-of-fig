@@ -9,7 +9,6 @@ const Chores = () => {
     getChores()
       .then(data => {
         setChores(data.data);
-        console.log('useEffect: ', data.data)
         setLoading(false);
       })
       .catch(error => console.log(error));
