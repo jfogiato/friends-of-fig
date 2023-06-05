@@ -1,11 +1,18 @@
 import './App.css';
+import NavHeader from './components/NavHeader/NavHeader';
+import {
+  Outlet,
+} from "react-router-dom";
 
 const App = () => {
 
   return (
-    <main>
-      <h1> Friends of Fig</h1>
-    </main>
+    <>
+      <NavHeader />
+      <div id="detail">
+        <Outlet />
+      </div>
+    </>
   );
 }
 
