@@ -24,22 +24,26 @@ const Chores = () => {
   
   const choreListComplete = chores.map(chore => {
     const date = new Date(chore.date).toString().split(' ').slice(0, 4).join(' ');
-    if (chore.completed) return (
-      <li className="list-group-item" key={chore.id}>
-        <input className="form-check-input me-1" type="checkbox" defaultChecked={chore.completed} onChange={handleCheckbox} id={chore.id}/>
-        <label className="form-check-label stretched-link" htmlFor={chore.id}>{chore.name} - {date}</label>
-      </li>
-    );
+    if (chore.completed) {
+      return (
+        <li className="list-group-item" key={chore.id}>
+          <input className="form-check-input me-1" type="checkbox" defaultChecked={chore.completed} onChange={handleCheckbox} id={chore.id}/>
+          <label className="form-check-label stretched-link" htmlFor={chore.id}>{chore.name} - {date}</label>
+        </li>
+      );
+    } 
   });
 
   const choreListToDo = chores.map(chore => {
     const date = new Date(chore.date).toString().split(' ').slice(0, 4).join(' ');
-    if (!chore.completed) return (
-      <li className="list-group-item" key={chore.id}>
-        <input className="form-check-input me-1" type="checkbox" defaultChecked={chore.completed} onChange={handleCheckbox} id={chore.id}/>
-        <label className="form-check-label stretched-link" htmlFor={chore.id}>{chore.name} - {date}</label>
-      </li>
-    );
+    if (!chore.completed) {
+      return (
+        <li className="list-group-item" key={chore.id}>
+          <input className="form-check-input me-1" type="checkbox" defaultChecked={chore.completed} onChange={handleCheckbox} id={chore.id}/>
+          <label className="form-check-label stretched-link" htmlFor={chore.id}>{chore.name} - {date}</label>
+        </li>
+      );
+    }
   });
 
   return (
