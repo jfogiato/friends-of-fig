@@ -5,4 +5,15 @@ const getChores = async () => {
   return chores;
 }
 
-export default getChores;
+const updateChore = async (id) => {
+  await new Promise(resolve => setTimeout(resolve, 100));
+  chores.data.map(chore => {
+    if (chore.id === parseInt(id)) {
+      chore.completed = !chore.completed;
+    }
+  });
+  return chores;
+}
+
+
+export { getChores, updateChore };

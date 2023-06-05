@@ -3,7 +3,7 @@ import React from 'react';
 const Instructions = () => {
   return (
     <section>
-      <h1>Instructions</h1>
+      <h1 className='text-center'>Instructions</h1>
       <div className="accordion">
         <div className="accordion-item">
           <h2 className="accordion-header">
