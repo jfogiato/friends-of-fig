@@ -13,20 +13,28 @@ const Chores = () => {
     })
     .catch(error => console.log(error));
 
-  const choreList = chores.map(chore => {
-    return ( <ChoreCard choreData={chore} key={chore.id} /> );
+  const choresByDay = chores.reduce((acc, chore) => {
+    if (!acc[chore.date]) {
+      acc[chore.date] = [chore];
+    } else {
+      acc[chore.date].push(chore);
+    }
+    return acc;
+  }, {});
+
+  const choreSections = Object.keys(choresByDay).map(date => {
+    return (
+      <>
+        <h3>{date}</h3>
+        {
+          choresByDay[date].map(chore => {
+            return <ChoreCard choreData={chore} key={chore.id} />;
+          })
+        }
+      </>
+    );
   });
 
-  // const choresByDay = chores.reduce((acc, chore) => {
-  //   if (!acc[chore.date]) {
-  //     acc[chore.date] = [chore];
-  //   } else {
-  //     acc[chore.date].push(chore);
-  //   }
-  //   return acc;
-  // }, {});
-
-  console.log(choresByDay)
 
   return (
     <section>
@@ -34,7 +42,7 @@ const Chores = () => {
       {loading 
         ? <p> Loading... </p>
         : <ul className="list-group">
-            {choreList}
+            {choreSections}
           </ul>
       }
     </section>

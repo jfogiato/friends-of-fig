@@ -10,7 +10,7 @@ const chores = {
       "id": 2,
       "name": "PM Dry Food",
       "date": "2023-09-01",
-      "completed": false,
+      "completed": true,
     },
     {
       "id": 3,
@@ -46,7 +46,7 @@ const chores = {
       "id": 8,
       "name": "Litter",
       "date": "2023-09-02",
-      "completed": false,
+      "completed": true,
     },
     {
       "id": 9,
@@ -88,7 +88,7 @@ const chores = {
       "id": 15,
       "name": "PM Wet Food",
       "date": "2023-09-03",
-      "completed": false,
+      "completed": true,
     },
   ]
 }
