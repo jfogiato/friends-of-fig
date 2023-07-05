@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import getChores from '../../utilities/api-calls';
+import ChoreCard from '../ChoreCard/ChoreCard';
 
 const Chores = () => {
   const [chores, setChores] = useState([]);
@@ -13,13 +14,19 @@ const Chores = () => {
     .catch(error => console.log(error));
 
   const choreList = chores.map(chore => {
-    return (
-      <li className="list-group-item" key={chore.id}>
-        <input className="form-check-input me-1" type="checkbox" value="" id={chore.id}/>
-        <label className="form-check-label stretched-link" htmlFor={chore.id}>{chore.name} - {chore.date}</label>
-      </li>
-    );
+    return ( <ChoreCard choreData={chore} key={chore.id} /> );
   });
+
+  // const choresByDay = chores.reduce((acc, chore) => {
+  //   if (!acc[chore.date]) {
+  //     acc[chore.date] = [chore];
+  //   } else {
+  //     acc[chore.date].push(chore);
+  //   }
+  //   return acc;
+  // }, {});
+
+  console.log(choresByDay)
 
   return (
     <section>
